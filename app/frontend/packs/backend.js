@@ -9,7 +9,7 @@ ActiveStorage.start()
 import "controllers"    // stimulus.js
 
 import "scripts/shared"    // js
-import "scripts/frontend" // js
+import "scripts/backend" // js
 
-import "styles/shared"   // scss
-import "styles/frontend" // scss
+import "styles/shared"
+import "styles/backend" // scss
