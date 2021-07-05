@@ -1,0 +1,7 @@
+<%= form_with(model: [:admin, category]) do |f| %>
+  <div class="field">
+    <%= f.label :name, '名稱', class: 'label' %>
+    <%= f.text_field :name, class: 'input is-medium' %>
+  </div>
+  <%= f.submit class: 'button is-primary is-medium' %>
+<% end %>
