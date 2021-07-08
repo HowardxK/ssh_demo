@@ -1,72 +1,30 @@
 <section class="product_list section has-background-black">
-  <h2 class="is-size-4 has-text-centered">限時閃購商品 - 全台獨家優惠</h2>
 
   <section class="container">
 
-    <div class="columns is-multiline">
-      <div class="column is-4">
-        <div class="card product-item is-shadowless">
-          <div class="card-image">
-            <figure class="image">
-              <img src="https://images.unsplash.com/photo-1612036781124-847f8939b154?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="content">
-              <h4 class="is-size-6">Switch</h4>
-              <p>Nintendo 任天堂 Switch電續加強藍紅主機</p>
+    
+      <div class="columns is-multiline">
+        <% products.each do |product| %>
+          <div class="column is-4">
+            <div class="card product-item is-shadowless">
+              <div class="card-image">
+                <figure class="image">
+                  <%= link_to product do %>
+                    <%= image_tag product.cover_image.variant(resize: '430x290') if product.cover_image.attached? %>
+                  <% end %>
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                  <h4 class="is-size-6"><%= product.vendor.title %></h4>
+                  <p><%= link_to product.name, product, class: 'has-text-dark' %></p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        <% end %>
 
-      <div class="column is-4">
-        <div class="card product-item is-shadowless">
-          <div class="card-image">
-            <figure class="image">
-              <img src="https://images.unsplash.com/photo-1612036781124-847f8939b154?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="content">
-              <h4 class="is-size-6">Switch</h4>
-              <p>Nintendo 任天堂 Switch電續加強藍紅主機</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="column is-4">
-        <div class="card product-item is-shadowless">
-          <div class="card-image">
-            <figure class="image">
-              <img src="https://images.unsplash.com/photo-1612036781124-847f8939b154?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="content">
-              <h4 class="is-size-6">Switch</h4>
-              <p>Nintendo 任天堂 Switch電續加強藍紅主機</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-4">
-        <div class="card product-item is-shadowless">
-          <div class="card-image">
-            <figure class="image">
-              <img src="https://images.unsplash.com/photo-1612036781124-847f8939b154?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="content">
-              <h4 class="is-size-6">Switch</h4>
-              <p>Nintendo 任天堂 Switch電續加強藍紅主機</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 </section>
