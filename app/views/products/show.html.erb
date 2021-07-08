@@ -11,27 +11,44 @@
   <div class="columns">
     <div class="column is-7">
       <figure class="image">
-        <%= image_pack_tag 'switch/switch5.jpg' %>
+        <%= image_tag @product.cover_image.variant(resize: '770x520') if @product.cover_image.attached? %>
       </figure>
 
       <article class="content">
         <h4>產品特色</h4>
         <p>
-          可透過各式各樣的遊玩風格來玩、購買了要用Joy-Con的遊戲後可以立即遊玩的「Nintendo Switch」。
-          細小輕巧、方便攜帶外出，手提模式專用的「Nintendo Switch Lite」。
-          可配合你的生活風格而選擇。
-
-          
+          <%= @product.description %>
         </p>
       </article>
     </div>
 
     <div class="column is-5">
-      <h3 class="has-text-grey-light">親子同玩</h3>
-      <h2 class="title is-4">Nintendo 任天堂 Switch電續加強藍紅主機</h2>
-      <p class="has-text-primary is-size-4">NTD 12,000 NTD</p>
+      <h3 class="has-text-grey-light"><%= @product.vendor.title %></h3>
+      <h2 class="title is-4"><%= @product.name %></h2>
+      <p class="has-text-primary is-size-4">
+        原價：<span class="list-price"><%= @product.list_price %></span><br>
+        特價：<span class="sell-price"><%= @product.sell_price %></span>
+      </p>
       <hr>
-      <div class="column">
+
+      <% if @product.skus.any? %>
+        <div class="field">
+          <div class="columns">
+            <div class="column is-3 is-size-4 has-text-right">
+              品項
+            </div>
+            <div class="column is-9 field is-grouped">
+              <div class="select is-fullwidth is-medium">
+                <select>
+                  <%= options_for_select(@product.skus.map { |p| [p.spec, p.id] }) %>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="columns">
         <div class="column is-3 is-size-4 has-text-right">
           數量
         </div>
