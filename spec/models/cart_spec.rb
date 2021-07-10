@@ -11,12 +11,22 @@ RSpec.describe Cart, type: :model do
 
     it "加了相同種類的商品到購物車裡，購買項目(CartItem) 不會增加，但商品的數量會改變" do
       cart = Cart.new
-      
+
       3.times { cart.add_item(1) }
       2.times { cart.add_item(2) }
 
       expect(cart.items.count).to be 2
       expect(cart.items.first.quantity).to be 3
+    end
+
+    it "商品可以放到購物車裡面，也可以再拿出來" do
+      cart = Cart.new
+      v1 = Vendor.create(title: 'v1')
+      p1 = Product.create(name: 'p1', list_price: 100, sell_price: 10, vendor: v1)
+
+      cart.add_item(p1.id)
+      
+      expect(cart.items.first.product).to be_a Product
     end
   end
 
