@@ -21,14 +21,14 @@ export default class extends Controller {
 
       // .. 打 API
       Rails.ajax({
-        url: 'api/hi',
+        url: '/api/v1/cart',
         data,
         type: 'POST',
-        success: respo => {
-
+        success: resp => {
+          console.log(resp)
         },
         error: err => {
-
+          console.log(err)
         }
       })
     }
