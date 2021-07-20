@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     end
 
     if @order.save
-      redirect_to root_path, notice: 'ok'
+      redirect_to root_path, notice: 'OK'
     else
       render 'carts/checkout'
     end
