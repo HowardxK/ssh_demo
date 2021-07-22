@@ -11,6 +11,7 @@ google_app_secret: 'your-app-secret'
 
 line_pay_channel_id: 'your-channel-id'
 line_pay_channel_secret: 'your-channel-secret'
+line_pay_endpoint: 'your-line-pay-endpoint'
 #
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
